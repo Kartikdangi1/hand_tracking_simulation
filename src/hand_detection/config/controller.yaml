@@ -1,0 +1,35 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 100                      # control loop frequency
+    state_publish_rate: 100.0            # how often controller states are published :contentReference[oaicite:2]{index=2}
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    dexhand_traj_controller:
+      type: joint_trajectory_controller/JointTrajectoryController
+      joints:
+        - thumb_pitch     # … all your finger DOFs …
+        - thumb_knuckle
+        - thumb_tip
+        - index_pitch
+        - index_knuckle
+        - index_tip
+        - middle_pitch
+        - middle_knuckle
+        - middle_tip
+        - ring_pitch
+        - ring_knuckle
+        - ring_tip
+        - pinky_pitch
+        - pinky_knuckle
+        - pinky_tip
+      command_interfaces: [position]       # send desired position setpoints :contentReference[oaicite:3]{index=3}
+      state_interfaces:   [position, velocity]
+      state_publish_rate: 50.0             # how often the controller’s own state is published :contentReference[oaicite:4]{index=4}
+      action_monitor_rate: 10.0            # for action feedback
+      allow_partial_joints_goal: false     # enforce full-goal trajectories :contentReference[oaicite:5]{index=5}
+      open_loop_control: true              # no internal trajectory smoothing
+      constraints:
+        stopped_velocity_tolerance: 0.01
+        goal_time: 0.0
+        # per-joint tolerances could go here…
