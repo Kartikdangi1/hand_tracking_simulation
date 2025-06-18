@@ -23,6 +23,7 @@ The original ROS 2 Humble node combined MediaPipe hand tracking with a DexHand 
 * **ROS 2 Integration:** The node continues to use `cv_bridge` to convert images from the `v4l2_camera` feed (`/dev/video2` → `/image_raw`) and publishes results compatible with RViz and the DexHand URDF. We publish the hand’s joint angles to **`/joint_states`** and provide an **optional `PoseArray`** topic (disabled by default) to visualize the hand’s skeletal landmark positions in RViz.
 
 ---
+![Screenshot from 2025-06-18 02-46-39](https://github.com/user-attachments/assets/1799c15a-936a-4b31-93a5-759c074c7313)
 
 ## Improved Smoothing and Stability
 
